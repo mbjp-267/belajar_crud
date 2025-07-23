@@ -12,7 +12,7 @@ useEffect(() => {
 
 const getUsers = async () => {
     try {
-    const response = await axios.get("http://localhost:5000/users");
+    const response = await axios.get("belajarcrud-production.up.railway.app/users");
     setUser(response.data);
     } catch (error) {
     console.log("Failed to fetch users:", error);
@@ -33,7 +33,7 @@ const deleteUser = async (id) => {
     }).then(async (result) => {
     if (result.isConfirmed) {
         try {
-        await axios.delete(`http://localhost:5000/users/${id}`);
+        await axios.delete(`belajarcrud-production.up.railway.app/users/${id}`);
           getUsers(); // refresh
         Swal.fire("Dihapus!", "User berhasil dihapus.", "success");
         } catch (error) {
