@@ -6,24 +6,25 @@ import User from "./models/UserModel.js";
 
 const app = express();
 
-const startServer = async () => {
-try {
-    await db.authenticate();
-    await db.sync();
-    console.log("Database connected...");
-} catch (error) {
-    console.error("Database connection error:", error);
-}
-
 app.use(cors({
     origin: "https://belajar-crud-lovat.vercel.app"
 }));
 app.use(express.json());
 app.use(UserRoute);
 
-app.listen(5000, () => {
-    console.log("Server running at http://localhost:5000");
+// ✅ Ini dipanggil di luar
+app.listen(process.env.PORT || 5000, () => {
+    console.log("Server running...");
 });
+
+const connectDB = async () => {
+    try {
+        await db.authenticate();
+        await db.sync();
+        console.log("Database connected...");
+    } catch (error) {
+        console.error("Database connection error:", error);
+    }
 };
 
-startServer();
+connectDB(); // jalanin koneksi, tapi server tetap jalan
