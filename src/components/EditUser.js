@@ -11,7 +11,7 @@ const { id } = useParams();
 
 const getUserById = useCallback(async () => {
     try {
-    const response = await axios.get(`https://belajar-crud-lovat.vercel.app/users/${id}`);
+    const response = await axios.get(`https://belajarcrud-production.up.railway.app/users/${id}`);
     setName(response.data.name || "");
     setEmail(response.data.email || "");
     setGender(response.data.gender || "Male");
@@ -27,7 +27,7 @@ const getUserById = useCallback(async () => {
 const updateUser = async (e) => {
     e.preventDefault();
     try {
-    await axios.patch(`https://belajar-crud-lovat.vercel.app/${id}`, {
+    await axios.patch(`https://belajarcrud-production.up.railway.app/${id}`, {
         name,
         email,
         gender
