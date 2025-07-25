@@ -12,7 +12,7 @@ app.use(cors({
     origin: "https://belajar-crud-lovat.vercel.app"
 }));
 app.use(express.json());
-app.use(UserRoute);
+app.use('/users', UserRoute);
 
 // Jalankan server setelah database berhasil connect
 const startServer = async () => {
