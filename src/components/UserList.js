@@ -12,7 +12,7 @@ useEffect(() => {
 
 const getUsers = async () => {
     try {
-    const response = await axios.get("https://belajarcrud-production.up.railway.app/users");
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/users`);
     setUser(response.data);
     } catch (error) {
     console.log("Failed to fetch users:", error);
