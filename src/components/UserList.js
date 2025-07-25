@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -12,7 +12,7 @@ useEffect(() => {
 
 const getUsers = async () => {
     try {
-    const response = await axios.get("https://belajarcrud-production.up.railway.app/users");
+    const response = await axios.get("/users");
     setUser(response.data);
     } catch (error) {
     console.log("Failed to fetch users:", error);
@@ -33,7 +33,7 @@ const deleteUser = async (id) => {
     }).then(async (result) => {
     if (result.isConfirmed) {
         try {
-        await axios.delete(`https://belajarcrud-production.up.railway.app/users/${id}`);
+        await axios.delete(`/users/${id}`);
           getUsers(); // refresh
         Swal.fire("Dihapus!", "User berhasil dihapus.", "success");
         } catch (error) {
