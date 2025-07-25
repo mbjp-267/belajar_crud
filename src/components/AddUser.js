@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import axios from 'axios';
+import api from "../axios";
 import { useNavigate } from 'react-router-dom';
 
 const AddUser = () => {
@@ -11,7 +11,7 @@ const navigate = useNavigate();
 const saveUser = async (e) => {
     e.preventDefault();
     try {
-        await axios.post(`${process.env.REACT_APP_API_URL}/users`, {
+        await api.post(`/users`, {
             name,
             email,
             gender
