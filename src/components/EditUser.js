@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import api from 'axios';
+import api from '../axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const EditUser = () => {
