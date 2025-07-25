@@ -11,7 +11,7 @@ const navigate = useNavigate();
 const saveUser = async (e) => {
     e.preventDefault();
     try {
-        await axios.post('https://belajarcrud-production.up.railway.app/users', {
+        await axios.post(`${process.env.REACT_APP_API_URL}/users`, {
             name,
             email,
             gender
