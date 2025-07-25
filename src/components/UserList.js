@@ -12,7 +12,7 @@ useEffect(() => {
 
 const getUsers = async () => {
     try {
-    const response = await axios.get(`/users`);
+    const response = await api.get(`/users`);
     setUser(response.data);
     } catch (error) {
     console.log("Failed to fetch users:", error);
@@ -33,7 +33,7 @@ const deleteUser = async (id) => {
     }).then(async (result) => {
     if (result.isConfirmed) {
         try {
-        await axios.delete(`/users/${id}`);
+        await api.delete(`/users/${id}`);
           getUsers(); // refresh
         Swal.fire("Dihapus!", "User berhasil dihapus.", "success");
         } catch (error) {
